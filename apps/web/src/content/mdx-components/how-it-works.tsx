@@ -48,17 +48,11 @@ export function HowItWorks() {
         {/* Steps Container */}
         <div className="relative">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
-            {/* Desktop connecting lines */}
-            <div className="hidden md:block absolute top-20 left-0 right-0 h-px">
-              <div className="absolute top-0 left-1/6 right-1/3 border-t-2 border-dashed border-success/30"></div>
-              <div className="absolute top-0 left-1/2 right-1/6 border-t-2 border-dashed border-success/30"></div>
-            </div>
-
             {/* Steps */}
             {steps.map((step, index) => (
-              <div key={step.number} className="relative">
+              <div key={step.number} className="relative flex flex-col items-center">
                 {/* Card */}
-                <div className="relative z-10 border border-border rounded-lg p-6 text-center h-full flex flex-col hover:border-success/60 transition-colors">
+                <div className="relative z-10 border border-border rounded-lg p-6 text-center h-full flex flex-col hover:border-success/60 transition-colors w-full">
                   {/* Numbered badge */}
                   <div className="flex justify-center mb-4">
                     <div className="w-10 h-10 rounded-full bg-success text-white flex items-center justify-center font-bold text-sm">
@@ -80,23 +74,9 @@ export function HowItWorks() {
                   </p>
                 </div>
 
-                {/* Arrow on desktop (not on last item) */}
+                {/* Connector line to next step (desktop) */}
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-24 -right-4 z-20">
-                    <svg
-                      className="w-8 h-8 text-success/40"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M9 5l7 7-7 7"
-                      />
-                    </svg>
-                  </div>
+                  <div className="hidden md:block absolute top-1/2 -right-8 w-16 h-px bg-gradient-to-r from-success/50 to-transparent z-0"></div>
                 )}
               </div>
             ))}
