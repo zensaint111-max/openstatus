@@ -35,7 +35,7 @@ export function HowItWorks() {
   ];
 
   return (
-    <section className="py-16 px-4 bg-muted/30">
+    <section className="py-16 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Heading */}
         <div className="text-center mb-12">
@@ -50,24 +50,24 @@ export function HowItWorks() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
             {/* Desktop connecting lines */}
             <div className="hidden md:block absolute top-20 left-0 right-0 h-px">
-              <div className="absolute top-0 left-1/6 right-1/3 border-t-2 border-dashed border-muted-foreground/20"></div>
-              <div className="absolute top-0 left-1/2 right-1/6 border-t-2 border-dashed border-muted-foreground/20"></div>
+              <div className="absolute top-0 left-1/6 right-1/3 border-t-2 border-dashed border-success/30"></div>
+              <div className="absolute top-0 left-1/2 right-1/6 border-t-2 border-dashed border-success/30"></div>
             </div>
 
             {/* Steps */}
             {steps.map((step, index) => (
               <div key={step.number} className="relative">
                 {/* Card */}
-                <div className="relative z-10 bg-background border border-border rounded-lg p-6 text-center h-full flex flex-col">
+                <div className="relative z-10 bg-background border border-success/20 rounded-lg p-6 text-center h-full flex flex-col hover:border-success/40 transition-colors">
                   {/* Numbered badge */}
                   <div className="flex justify-center mb-4">
-                    <div className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm">
+                    <div className="w-10 h-10 rounded-full bg-success text-white flex items-center justify-center font-bold text-sm">
                       {step.number}
                     </div>
                   </div>
 
                   {/* Icon */}
-                  <div className="flex justify-center mb-4 text-primary">
+                  <div className="flex justify-center mb-4 text-success">
                     {step.icon}
                   </div>
 
@@ -84,7 +84,7 @@ export function HowItWorks() {
                 {index < steps.length - 1 && (
                   <div className="hidden md:block absolute top-24 -right-4 z-20">
                     <svg
-                      className="w-8 h-8 text-muted-foreground/30"
+                      className="w-8 h-8 text-success/40"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
