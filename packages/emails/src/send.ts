@@ -4,7 +4,16 @@ import { Resend } from "resend";
 import { render } from "@react-email/render";
 import { env } from "./env";
 
-export const resend = new Resend(env.RESEND_API_KEY);
+let resend: Resend | null = null;
+
+function getResend() {
+  if (!resend) {
+    resend = new Resend(env.RESEND_API_KEY);
+  }
+  return resend;
+}
+
+export { getResend as resend };
 
 export interface Emails {
   react: React.JSX.Element;
@@ -23,12 +32,12 @@ export type EmailHtml = {
 };
 export const sendEmail = async (email: Emails) => {
   if (process.env.NODE_ENV !== "production") return;
-  await resend.emails.send(email);
+  await getResend().emails.send(email);
 };
 
 export const sendBatchEmailHtml = async (emails: EmailHtml[]) => {
   if (process.env.NODE_ENV !== "production") return;
-  await resend.batch.send(emails);
+  await getResend().batch.send(emails);
 };
 
 // TODO: delete in favor of sendBatchEmailHtml
@@ -48,7 +57,7 @@ export const sendEmailHtml = async (emails: EmailHtml[]) => {
 export const sendWithRender = async (email: Emails) => {
   if (process.env.NODE_ENV !== "production") return;
   const html = await render(email.react);
-  await resend.emails.send({
+  await getResend().emails.send({
     ...email,
     html,
   });
