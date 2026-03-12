@@ -58,7 +58,7 @@ export function HowItWorks() {
             {steps.map((step, index) => (
               <div key={step.number} className="relative">
                 {/* Card */}
-                <div className="relative z-10 bg-background border border-success/20 rounded-lg p-6 text-center h-full flex flex-col hover:border-success/40 transition-colors">
+                <div className="relative z-10 border border-border rounded-lg p-6 text-center h-full flex flex-col hover:border-success/60 transition-colors">
                   {/* Numbered badge */}
                   <div className="flex justify-center mb-4">
                     <div className="w-10 h-10 rounded-full bg-success text-white flex items-center justify-center font-bold text-sm">
