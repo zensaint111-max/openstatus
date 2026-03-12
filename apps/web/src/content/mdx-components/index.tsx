@@ -5,6 +5,7 @@ import { CustomImage } from "./custom-image";
 import { CustomLink } from "./custom-link";
 import { Details } from "./details";
 import { Grid } from "./grid";
+import { HowItWorks } from "./how-it-works";
 import { createHeading } from "./heading";
 import { Pre } from "./pre";
 import { MDXStatusPageExample } from "./status-page-example";
@@ -32,4 +33,5 @@ export const components = {
   SimpleChart: LatencyChartTable,
   Tweet: MDXTweet,
   StatusPageExample: MDXStatusPageExample,
+  HowItWorks,
 };
